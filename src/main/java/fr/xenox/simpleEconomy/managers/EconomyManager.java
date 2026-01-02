@@ -20,11 +20,21 @@ public class EconomyManager {
         this.balances = new HashMap<>();
     }
 
+    /**
+     * Création du joueur s'il n'existe pas car sinon jamais dans transaction et balance bloquée
+     */
+    public void createAccount(Player player) {
+        if (!balances.containsKey(player.getUniqueId())) {
+            balances.put(player.getUniqueId(), startingBalance);
+        }
+    }
+
     /*
      * Récupération de la solde d'un joueur ou renvoie par défaut le starting balance.
      */
     public double getBalance(Player player) {
-        return balances.getOrDefault(player.getUniqueId(), startingBalance);
+        createAccount(player);
+        return balances.get(player.getUniqueId());
     }
 
     /*
@@ -37,7 +47,6 @@ public class EconomyManager {
             amount = 0;
             // Log ?
         }
-
         balances.put(player.getUniqueId(), amount);
     }
 
@@ -51,6 +60,8 @@ public class EconomyManager {
             amount = 0;
         }
 
+        createAccount(player);
+
         double currentBalance = getBalance(player);
         setBalance(player, currentBalance + amount);
     }
@@ -63,6 +74,9 @@ public class EconomyManager {
         if (amount < 0) {
             return false; // Pas d'éléments négatifs
         }
+
+        createAccount(player);
+
 
         // Récupère balance du joueur
         double currentBalance = getBalance(player);

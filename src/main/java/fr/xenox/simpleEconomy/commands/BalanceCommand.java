@@ -47,7 +47,7 @@ public class BalanceCommand implements CommandExecutor {
         }
 
         double balance = economyManager.getBalance(target);
-        sender.sendMessage("§cSolde du joueur " + target.getName() + " -> " + balance + "$");
+        sender.sendMessage("§aSolde du joueur " + target.getName() + " -> " + balance + "$");
 
         return true;
     }

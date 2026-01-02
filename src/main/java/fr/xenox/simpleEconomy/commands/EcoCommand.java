@@ -75,7 +75,7 @@ public class EcoCommand implements CommandExecutor {
                 economyManager.setBalance(target, amount);
                 sender.sendMessage("§aSolde de §6" + target.getName() + " est de " + economyManager.getBalance(target) + "$");
                 if (target.isOnline()) {
-                    sender.sendMessage("§eVotre solde a été modifié par les admins, nouveau solde : " + economyManager.getBalance(target) + "$");
+                    target.sendMessage("§eVotre solde a été modifié par les admins, nouveau solde : " + economyManager.getBalance(target) + "$");
                 }
                 break;
 
