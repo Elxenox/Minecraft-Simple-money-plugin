@@ -1,5 +1,8 @@
 package fr.xenox.simpleEconomy;
 
+import fr.xenox.simpleEconomy.commands.BalanceCommand;
+import fr.xenox.simpleEconomy.commands.EcoCommand;
+import fr.xenox.simpleEconomy.commands.PayCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import fr.xenox.simpleEconomy.managers.EconomyManager;
 import fr.xenox.simpleEconomy.managers.DataManager;
@@ -42,5 +45,12 @@ public final class SimpleEconomy extends JavaPlugin {
 
     public EconomyManager getEconomyManager() {
         return economyManager;
+    }
+
+    // Commandes
+    private void registerCommands() {
+        getCommand("balance").setExecutor(new BalanceCommand());
+        getCommand("pay").setExecutor(new PayCommand());
+        getCommand("eco").setExecutor(new EcoCommand());
     }
 }
