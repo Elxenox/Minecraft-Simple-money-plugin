@@ -28,7 +28,8 @@ public final class SimpleEconomy extends JavaPlugin {
         economyManager = new EconomyManager();
         getLogger().info("$ - Economie manager initialisé");
 
-
+        registerCommands();
+        getLogger().info("$ - Commande enregistrées");
 
         getLogger().info("$$ - SimpleEconomy plugin has been successfully enabled! $$");
     }

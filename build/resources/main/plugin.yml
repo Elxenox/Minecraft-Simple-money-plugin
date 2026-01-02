@@ -1,0 +1,27 @@
+name: SimpleEconomy
+version: '1.1-ALPHA'
+main: fr.xenox.simpleEconomy.SimpleEconomy
+api-version: '1.21'
+description: Plugin d'économie simple
+
+commands:
+  balance:
+    description: Voir son solde ou celui d'un joueur
+    usage: /balance [joueur]
+    aliases: [bal, money, argent]
+
+  pay:
+    description: Donner de l'argent à un joueur
+    usage: /pay <joueur> <montant>
+    aliases: [payer, donner]
+
+  eco:
+    description: Gérer l'économie (admin)
+    usage: /eco <give|take|set> <joueur> <montant>
+    permission: simpleeconomy.admin
+    aliases: [economy]
+
+permissions:
+  simpleeconomy.admin:
+    description: Accès aux commandes admin
+    default: op
