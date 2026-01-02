@@ -1,0 +1,4 @@
+name: SimpleEconomy
+version: '1.0-ALPHA'
+main: fr.xenox.simpleEconomy.SimpleEconomy
+api-version: '1.21'
